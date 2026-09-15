@@ -1,5 +1,7 @@
 # Tech Stack — journeyinspired.group
 
+> **Reconciliation note (v1.4, 15 Sep 2026):** the "no Clerk, no Stripe, no Supabase/Postgres" deviation described below is **partially reversed** as of the Phase 1 platform build (design brief v1.4 Appendix A, source: JI-PMO-001 v1.8) — Clerk and Supabase/Postgres are now adopted for this domain's database and auth/RBAC. Stripe remains excluded, but now because Phase 1 is deliberately invoice-only (gated to Phase 2), not because "no commerce happens on this domain." The reasoning below about `.travel`/journeycurated.com being separate live properties with their own stacks is superseded — see `docs/journeyinspired-group_design-brief_v1.4.md`. The institutional 8 pages' own content model (MDX-in-repo, no CMS) is unaffected.
+
 **This deviates from the org-wide default stack. That's intentional — flagged explicitly, not silently.**
 
 ## What's specified

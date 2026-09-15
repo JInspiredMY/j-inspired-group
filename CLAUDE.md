@@ -4,22 +4,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-The corporate website for **journeyinspired.group** (Journey Inspired Group Sdn. Bhd.) — one of three sibling domains. This repo builds `.group` **only**: an 8-page, institutional-audience credibility site (investors, grant bodies, government, hospitals, universities, developers, insurers). Commerce/booking/payments live on `.travel`; articles/blog/SEO content lives on `journeycurated.com`.
+The corporate website for **journeyinspired.group** (Journey Inspired Group Sdn. Bhd.) — now the **single consolidated domain** for the Journey Inspired ecosystem. `journeyinspired.travel` and `journeycurated.com` redirect into this domain as paths (`/travel`, `/journey-curated`) rather than running as separate sites. The existing 8-page institutional scope (investors, grant bodies, government, hospitals, universities, developers, insurers) is unchanged; what's new is that this domain is also becoming the company's actual Phase 1 revenue platform — database, auth, product catalogue, booking pipeline — per the company's delivery roadmap (see Governance below). `/travel` and `/journey-curated` are additive path groups, not a replacement of the 8 institutional pages.
 
 ## Governance — read before building
 
 Product/content scope is governed by documents, and they override training data, prior conversations, and any conflicting file in this repo:
 
-- **`docs/journeyinspired-group_design-brief_v1.3.md`** is the single source of truth. Where anything conflicts with v1.3, v1.3 wins. It supersedes an earlier v1.0 doc with a larger sitemap — do not use v1.0 as a build reference.
+- **`docs/journeyinspired-group_design-brief_v1.4.md`** is the single source of truth. Where anything conflicts with v1.4, v1.4 wins. It supersedes v1.3 (domain consolidation + Phase 1 platform reconciliation — the underlying 5-pillar taxonomy and Phase 1/AI-positioning resolution from v1.3 are carried forward unchanged, not reopened) and the earlier v1.0 doc with a larger sitemap — do not use v1.0 as a build reference.
+- **JI-PMO-001 v1.8** ("Master Delivery Roadmap") is the company's canonical delivery roadmap and the source of Phase 1's actual scope and dates (see design brief v1.4 Appendix A). Its canonical home is the company's Google Drive; treat any other copy as potentially stale before citing specifics from it.
 - **`.github/copilot-instructions.md`** — the hard-constraint list. Applies to every change here, not just Copilot.
-- `docs/information-architecture.md` — page-by-page specs. `docs/content-governance.md` — every copy/content rule.
+- `docs/information-architecture.md` — page-by-page specs for the 8 institutional pages. `docs/content-governance.md` — every copy/content rule. Both still describe the pre-consolidation 3-domain model in a few places not yet fully reconciled — v1.4 wins where they conflict.
 
 Hard constraints (see copilot-instructions.md for the full text and rationale):
 
-- **No AI features** (Phase 1 is confirmed non-AI): no chatbots, LLM calls, recommendation engines, or "AI-powered" present-tense UI copy. The line `"AI-Powered ... Travel Concierge"` may appear **only** as clearly-future vision framing (the "Where we're headed" section of Our Story). The usable-anywhere brand promise is `"Curating Transformational Travel Experiences"`.
-- **No auth, no payments, no database.** No Clerk / Stripe / Supabase. Content gating (Investor Relations, Governance, Careers) is a build-time "real content vs. honest placeholder" decision, never a login wall. Do not fabricate leadership bios, legal-entity details, or job listings to fill gated pages.
-- **No blog / articles / thought leadership**, no pricing tables, no "book now" / consumer CTAs. Link out to the sibling domains instead of building these.
-- **Exactly 8 pages** (Home, Our Story, Ecosystem Model, Partnership Opportunities, Governance, Press, Careers, Contact). Do not add routes without a documented scope decision.
+- **No AI features** (Phase 1 is confirmed non-AI): no chatbots, LLM calls, recommendation engines, or "AI-powered" present-tense UI copy. The line `"AI-Powered ... Travel Concierge"` may appear **only** as clearly-future vision framing (the "Where we're headed" section of Our Story) — this is independently confirmed by the roadmap, where AI Concierge is Phase 5, gated on proven external demand. The usable-anywhere brand promise is `"Curating Transformational Travel Experiences"`.
+- **Auth and a database are now part of this repo's scope** — Clerk (auth/RBAC) and Supabase/Postgres (database), adopted for the Phase 1 platform build (destinations, admin, catalogue, bookings). **Stripe/live payments are still excluded** — deferred to Phase 2, gated on proven Phase 1 revenue repeatability, not this repo's decision to build ahead of. Content gating (Investor Relations, Governance, Careers) is a build-time "real content vs. honest placeholder" decision, never a login wall. Do not fabricate leadership bios, legal-entity details, or job listings to fill gated pages.
+- **No blog / articles / thought leadership on the 8 institutional pages**, no pricing tables, no "book now" / consumer CTAs there. `/journey-curated` is the confirmed future home for content that was previously scoped to journeycurated.com, but its IA/CMS is not yet decided — don't build it from the path name alone.
+- **8 institutional pages, plus `/travel` and `/journey-curated` as additive path groups** (Home, Our Story, Ecosystem Model, Partnership Opportunities, Governance, Press, Careers, Contact + `/travel`, `/journey-curated`). Do not add routes beyond this without a documented scope decision.
 - **The 5 pillars are canonical** — exact names and order live in `lib/pillars.ts`, matching content-governance.md. "Curated Experiences", "Corporate Travel Experiences", and "Group Travel" are **not** pillars; do not add them as cards or nav items.
 - **Do not invent brand visual identity.** No color palette / type scale / logo guide is finalized. Use only the placeholder tokens in `styles/tokens.css`; mark any placeholder value `PLACEHOLDER — pending brand kit`. Swapping in the real kit must stay a one-file change.
 
@@ -85,4 +86,4 @@ Set in Vercel (Production + Preview), or inline for local dev — copy `.env.exa
 
 - kebab-case for all files and routes; one component per file, TypeScript functional components in `components/` (`components/ui/` for shadcn primitives).
 - All content and copy changes go through the same PR process as code; `main` is production.
-- When unsure whether something belongs on `.group` vs. `.travel` vs. `journeycurated.com`, default to **not building it here** and ask.
+- The `.travel` and `journeycurated.com` domains no longer have separate live builds to route work to — everything now lives in this repo. When unsure whether something is in the current Phase 1 scope (design brief v1.4 Appendix A) versus later-phase/gated work, default to **not building it** and ask.
