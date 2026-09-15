@@ -29,7 +29,7 @@ Phase 1 is confirmed non-AI. Any copy that implies AI is a current, live capabil
 
 ## Content types excluded from this domain
 
-- **Articles, blog posts, destination guides, thought leadership** — permanently excluded from `.group`. Belongs solely to journeycurated.com. If a page brief seems to want this content type, link out instead of building it here.
+- **Articles, blog posts, destination guides, thought leadership** — not part of the current 8-page institutional build. journeycurated.com's content now consolidates in-domain at `/journey-curated` per the single-domain decision, but its page-by-page IA/CMS/tagging scope is **not yet decided** — do not build it under this reconciliation. See `docs/journeyinspired-group_design-brief_v1.4.md` Appendix A.
 - **Product/package listings, pricing, booking flows** — belongs to `.travel`.
 - **Job listings / applicant tracking** — Careers is interest-form only until real openings exist.
 

@@ -72,7 +72,7 @@ Note: `.group` is not the SEO play. Target-keyword fields below are mostly N/A �
   1. Intro — one paragraph framing the 5-pillar model
   2. 5 pillar cards (canonical names, see `product-requirements.md` §3.2) — description-level detail, not product-level
   3. Curated Experiences — one short explanatory block: "how we design every journey," not a 6th card
-  4. Links out: "See it in action" → journeyinspired.travel (pillar depth); "Read about it" → journeycurated.com (related content)
+  4. Links out: "See it in action" → journeyinspired.travel (pillar depth); "Read about it" → journeycurated.com (related content) [pending reconciliation — both targets now redirect into `.group` per v1.4; exact in-domain destination (`/travel`, `/journey-curated`) not yet decided for this specific link]
 - **Primary CTA:** → Partnership Opportunities
 - **Secondary CTA:** External link to `.travel`
 - **Internal Links To:** Partnership Opportunities
