@@ -2,6 +2,8 @@
 
 **Status:** Reconciled against design brief v1.3 (see `docs/journeyinspired-group_design-brief_v1.3.md`). This version corrects three conflicts with that brief that existed in the prior draft of this document — see changelog.
 
+> **Reconciliation note (v1.4, 15 Sep 2026):** this document predates the single-domain consolidation and still describes `.travel` and `journeycurated.com` as separate live properties throughout (Supporting Websites, Deliverables, Website Objectives, Content Principles, and Definition of Success sections in particular). That framing is superseded — see `docs/journeyinspired-group_design-brief_v1.4.md` for the authoritative current domain model. In particular, changelog item 3 below ("thought leadership... permanently excluded from `.group`") no longer holds: that content now belongs under the in-domain `/journey-curated` path (not yet scoped). This document has not otherwise been reconciled against v1.4 — treat its domain/funnel language elsewhere as historical unless independently verified.
+
 ## Changelog
 
 | # | What changed | Why |

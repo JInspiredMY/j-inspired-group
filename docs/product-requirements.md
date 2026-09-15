@@ -3,6 +3,8 @@
 **Status:** Content/structure decisions final (source: design brief v1.3). Brand kit pending.
 **Audience for this document:** engineers and Copilot/agent tooling building the repo. Business rationale lives in `journeyinspired-group_design-brief_v1.3.md` — this document translates it into build requirements.
 
+> **Reconciliation note (v1.4, 15 Sep 2026):** as of the single-domain consolidation, journeyinspired.group is the sole domain — `/travel` and `/journey-curated` are paths within it, not separate domains. The Executive Summary and §3.4 Funnel Position below still describe the pre-consolidation split (e.g., "those jobs belong to `.travel` and journeycurated.com," "`.group` has no node in the customer acquisition funnel") and have not been rewritten for this version — no replacement funnel/IA has been authored yet either. The 8-page institutional scope itself is unchanged. See `docs/journeyinspired-group_design-brief_v1.4.md` for the authoritative current domain model.
+
 ---
 
 ## 1. Executive Summary

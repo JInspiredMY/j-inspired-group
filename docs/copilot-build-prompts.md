@@ -1,5 +1,7 @@
 # Copilot Build Prompts — journeyinspired.group
 
+> **Reconciliation note (v1.4, 15 Sep 2026):** the prompts below (written for the original 8-page institutional build) still reference `journeyinspired.travel` and `journeycurated.com` as external, separate domains to link out to (Prompts 4 and 6). Post-consolidation, both are paths within this same domain (`/travel`, `/journey-curated`) — the underlying instructions ("no blog," "link out, don't build") stay correct for the institutional 8 pages specifically, but the external-link framing is stale. See `docs/journeyinspired-group_design-brief_v1.4.md`. These prompts are not updated for the Phase 1 platform build (database/auth/registry/catalogue) — that is new scope with its own implementation plan, not covered here.
+
 Ready-to-paste prompts for GitHub Copilot Chat (VS Code) or Copilot coding agent, in build order. Each assumes `.github/copilot-instructions.md` is already in the repo and being picked up (Copilot reads it automatically — no need to paste its contents into these prompts).
 
 Run these roughly in order. Review the diff after each before moving to the next — don't chain them unattended, especially early on while the placeholder-token decision is still open.
