@@ -1,0 +1,26 @@
+name: Apply database migrations
+
+# Runs Drizzle migrations against the production database when a merge to
+# main touches db/migrations. Requires the DIRECT_URL secret (Supabase
+# direct connection, not the pooled one) to be set in the repo's Actions
+# secrets — see .env.example and CLAUDE.md.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'db/migrations/**'
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run db:migrate
+        env:
+          DIRECT_URL: ${{ secrets.DIRECT_URL }}

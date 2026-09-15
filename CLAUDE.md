@@ -63,9 +63,11 @@ window.dispatchEvent(new Event('analytics-consent'))
 
 **Styling layers:** `app/globals.css` is the shadcn/Tailwind-v4 layer (OKLCH design tokens, `.dark` variant, `@theme inline`). It also `@import`s `styles/globals.css`, which pulls in `styles/tokens.css` — the placeholder brand tokens (`--color-primary`, `--color-accent`, `--font-sans`). Keep brand values confined to `styles/tokens.css`.
 
+**Database & auth — Phase 1 platform build (R1, design brief v1.4 Appendix A).** `db/index.ts` is the Drizzle client (Supabase/Postgres, `postgres-js` driver, pooled connection). `db/schema.ts` is currently an empty stub — R1 adds the first table (`destinations`). `drizzle.config.ts` points migrations at `db/migrations/`, applied via `.github/workflows/db-migrate.yml` on merge to `main`. `middleware.ts` wires Clerk auth, currently gating only `/admin/:path*` (which doesn't exist yet — R1 adds it). `app/layout.tsx` wraps the app in `<ClerkProvider>` globally (required for the middleware to function) but renders no sign-in UI on the public institutional pages.
+
 ## Environment variables
 
-Set in Vercel (Production + Preview), or inline for local dev. See `docs/deployment.md` / `docs/deploy-and-test.md`.
+Set in Vercel (Production + Preview), or inline for local dev — copy `.env.example` to `.env.local`. See `docs/deployment.md` / `docs/deploy-and-test.md`.
 
 | Var | Scope | Purpose |
 |---|---|---|
@@ -74,6 +76,10 @@ Set in Vercel (Production + Preview), or inline for local dev. See `docs/deploym
 | `NEXT_PUBLIC_GA_ID` | client | GA4 measurement ID |
 | `NEXT_PUBLIC_POSTHOG_ID` | client | PostHog project key |
 | `NEXT_PUBLIC_SITE_DOMAIN` | client | `from` domain for enquiry email (`no-reply@<domain>`) |
+| `DATABASE_URL` | server secret | Supabase pooled connection (Supavisor, transaction mode) — app runtime queries |
+| `DIRECT_URL` | server secret, CI only | Supabase direct connection — migrations only (`db:migrate`), never imported at runtime |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | client | Clerk publishable key |
+| `CLERK_SECRET_KEY` | server secret | Clerk secret key |
 
 ## Conventions
 
